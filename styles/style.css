@@ -264,7 +264,7 @@ td:hover {
     margin: 8px 0;
     display: block; 
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 10px;
     box-sizing: border-box;
     text-align: center;
   }
@@ -277,31 +277,59 @@ td:hover {
     font-size: x-large;
   }
 
-  output{
+  output {
     text-align: center;
     display: block;
   }
   
-  button{
+  button {
     display: block;
+    border: none;
+    border-radius: 10px;
     margin: 10px auto;
     padding: 15px;
     font-weight: bolder;
     font-size: larger;
     color: white;
     background-color: darkgreen;
-    width: auto;
+    width: 50%;
+    transition: transform .2s;
   }
-/*
-  input:user-valid {
-    border: 7px green;
+  
+  button:hover {
+    -ms-transform: scale(1.25); 
+    -webkit-transform: scale(1.25);
+    transform: scale(1.25);
   }
 
-  input:user-invalid {
-    border: 7px solid red;
+  textarea {
+    width: -webkit-fill-available;
+    display: block;
   }
-*/
-  
+
+  input.valid{
+    border: 5px solid darkgreen;
+  }
+
+  input.invalid{
+    border: 5px solid red;
+  }
+
+  #comments_info{
+    font-weight: bold;
+  }
+
+  .orange-warning{
+    color: orange;
+  }
+
+  .red-warning{
+    color: red;
+  }
+
+  .no-warning{
+    color: white;
+  }
 
 /* ================ 
     ABOUT ME 

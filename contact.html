@@ -35,9 +35,17 @@
                     <output for="email" id="email_info"></output><br>
                     
                     <label for="comments">COMMENTS?</label>
-                    <input type="text" name="comments" id="comments" placeholder="Comments should only contain typical characters (letters, numbers, spaces, and . ? ! , ' +)" maxlength="200" pattern="[A-Za-z0-9 .?!,'+]*" required ><br>
-                    <output for="comments" id="comments_error"></output><br>
+                    <textarea type="text" name="comments" id="comments" placeholder="Comments should only contain typical characters (letters, numbers, spaces, and . ? ! , ' +)" rows="5" maxlength="200" required></textarea>
                     <output for="comments" id="comments_info"></output><br>
+                    <output for="comments" id="comments_error"></output><br>
+
+                    <!--
+                    <div id="char_counter">
+                        <span id="counter">0</span>
+                        <span>/</span>
+                        <span id="max_char">200</span>
+                    </div>
+                    -->
 
                     <label for="possible_bot"></label>
                     <input type="hidden" name="possible_bot" id="possible_bot" value="true">
