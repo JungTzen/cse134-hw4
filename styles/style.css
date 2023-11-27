@@ -239,7 +239,7 @@ td:hover {
    ================ */
 
 .suggestions {
-    border-radius: 5px;
+    border: none;
     border: 5px solid darkgreen;
     background-color: mediumseagreen;
     padding: 20px;
@@ -251,11 +251,14 @@ td:hover {
   form {
     display: grid;
     grid-gap: 10px; 
+    border: none;
+  }
+
+  fieldset{
+    border: none;
   }
   
-  input[type="text"],
-  select,
-  textarea {
+  input[type="text"], input[type="email"], textarea {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -263,34 +266,41 @@ td:hover {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-  }
-  
-  input[type="submit"] {
-    width: 100%;
-    background-color: darkgreen;
-    font-size: x-large;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  input[type="submit"]:hover {
-    background-color: #45a049;
+    text-align: center;
   }
   
   label {
     padding: 12px 20px; 
     display: block;
     text-align: center;
-  }
-  
-  input[type="checkbox"] {
-    margin-right: 10px; 
+    font-weight: bolder;
+    font-size: x-large;
   }
 
+  output{
+    text-align: center;
+    display: block;
+  }
+  
+  button{
+    display: block;
+    margin: 10px auto;
+    padding: 15px;
+    font-weight: bolder;
+    font-size: larger;
+    color: white;
+    background-color: darkgreen;
+    width: auto;
+  }
+
+  input:user-valid {
+    border: 7px green;
+  }
+
+  input:user-invalid {
+    border: 7px solid red;
+  }
+  
 /* ================ 
     ABOUT ME 
    ================ */
