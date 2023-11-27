@@ -21,17 +21,22 @@
             header{
                 text-align: center;
             }
+
+            input[type="checkbox"]{
+                display: none;
+            }
+
         </style>
     </head>
     <body>
         <header id="homepage_header">
             <h1 class="homepage_header">JUNG TZEN LIEW</h1>
-            <label for="theme_switcher">
-                <input type="checkbox" class="theme_switcher" id="theme_switcher" onclick="themeButton()">
-                <span class="theme_switch"></span>
-            </label>
         </header>
         <main class="homepage">
+            <label for="theme_switcher">
+                <input type="checkbox" id="theme_switcher" onclick="themeButton()">
+                <span class="theme_switch"></span>
+            </label>
             <h2 class="homepage_nav">
                 <a href="all_about_me.html" class="tab">ABOUT ME</a>
                 <a href="documents.html" class="tab">LET'S GET PROFESSIONAL</a>

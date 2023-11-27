@@ -103,16 +103,7 @@ form.addEventListener("submit", (event) => {
 
   event.preventDefault();
 
-  //const encoded = JSON.stringify({ form_errors: form_errors });
-
-  const formData = {
-    form_name: form_name.value,
-    email: email.value,
-    comments: comments.value,
-    form_errors: form_errors
-  }
-
-  const encoded = JSON.stringify(formData);
+  const encoded = JSON.stringify({ form_errors: form_errors });
 
   fetch('https://httpbin.org/post', { 
     method: 'POST', 
@@ -121,11 +112,15 @@ form.addEventListener("submit", (event) => {
     },
     body: encoded 
   })
+
   .then(response => response.json())
   .then(data => {
-    const responseElement = document.createElement('pre');
-    responseElement.textContent = JSON.stringify(data, null, 2);
-    document.body.appendChild(responseElement);
+    const newPage = window.open('', '_blank');
+    if (newPage) {
+      newPage.document.write(`<pre>${JSON.stringify(data, null, 2)}</pre>`);
+    } else {
+      console.error('Popup blocked');
+    }
   })
   .catch(error => console.error('Error:', error));
 });
@@ -152,23 +147,19 @@ function themeSetter(theme){
 function themeButton(){
   const currentTheme = localStorage.getItem('theme') || 'light';
   let newTheme = '';
-  if (currentTheme == 'light'){
-    newTheme = 'dark';
-  }
-  else{
-    newTheme = 'light';
-  }
+  if (currentTheme == 'light'){newTheme = 'dark';}
+  else{newTheme = 'light';}
 
   localStorage.setItem('theme', newTheme);
   themeSetter(newTheme);
 }
 
 function setLocalTheme(){
-  const local = localStorage.getItem('theme');
+  const local = localStorage.getItem('theme') || 'light';
   if(local){
     themeSetter(local);
-    document.getElementById('theme_switcher').checked = savedTheme==='dark'
+    document.getElementById('theme_switcher').checked = local==='dark'
   }
 }
 
-document.addEventListener('DOMContentLoaded')
+document.addEventListener('DOMContentLoaded', setLocalTheme)
