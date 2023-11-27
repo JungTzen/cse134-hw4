@@ -42,8 +42,8 @@ body{
         text-decoration: none; 
         padding: 10px 15px;
         margin: 20px;
-        color: darkgreen;
-        border: 5px solid darkgreen;
+        color: var(--primary-color);
+        border: 5px solid var(--primary-color);
         font-size: large;
         text-align: center;
         font-weight: bold; 
@@ -67,9 +67,51 @@ body{
 
 }
 
+#theme_switcher{
+    position: fixed;
+
+}
+
+#theme_switcher input {
+    display: none;
+}
+
+.theme_switch{
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 35px;
+    background-color: black;
+    border-radius: 35px;
+}
+
+.theme_switch:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+input:checked + .theme_switch:before {
+    transform: translateX(26px);
+    background-color: black;
+}
+
+
+input:checked + .theme_switch {
+    background-color: orange;
+}
+
 /* ================ 
         HOMEPAGE 
    ================ */
+.homepage_header{
+    color: var(--primary-color)
+}
 
 .homepage{
     display: flex;
@@ -81,9 +123,9 @@ body{
         max-width: 400px;
         justify-content: center;
         margin-left: 100px; margin-right: 80px; margin-bottom: 50px; padding: 15px;
-        color: darkgreen;
+        color: var(--primary-color);
         text-decoration: none;
-        border: 5px solid darkgreen;
+        border: 5px solid var(--primary-color);
         font-size: x-large;
         text-align: center;
         font-weight: bold;
@@ -93,7 +135,7 @@ body{
     
     .tab:hover{
         /*background-color: white;*/
-        background-color: color-mix(in srgb, darkgreen, rgb(225, 242, 187) 50%);
+        background-color: var(--hover-background-color);
         color: white;
         -ms-transform: scale(1.25); 
         -webkit-transform: scale(1.25);
@@ -103,7 +145,7 @@ body{
 
 .portrait{
     margin: 20px;
-    border: 20px solid darkgreen;
+    border: 20px solid var(--primary-color);
 }
 
 .portrait_index picture {
@@ -118,12 +160,13 @@ body{
     color: var(--background-color);
     animation-name: example;
     animation-duration: 4s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes example {
     from {color: var(--background-color);}
-    to {color: darkgreen;}
-  }
+    to {color: var(--primary-color);}
+}
 
 /* ================ 
     DOCUMENTS 
@@ -131,7 +174,6 @@ body{
 
 .professional{
     display: flex;
-    /*border: 1px solid black;*/
     align-items: center;
     justify-content: center;
 }
@@ -145,8 +187,8 @@ body{
 
 .summary_blurb{
     flex: 1;
-    border: 10px solid color(display-p3 0 0.39 0);;
-    color: black;
+    border: 10px solid var(--primary-color);
+    color: var(--text-color);
     margin: 10px;
     border-radius: 15px;
     padding: 15px;
@@ -179,9 +221,9 @@ body{
     max-width: 400px;
     margin: 50px; padding: 15px;
     display: block;
-    color: darkgreen;
+    color: var(--primary-color);
     text-decoration: none;
-    border: 5px solid darkgreen;
+    border: 5px solid var(--primary-color);
     border-radius: 15px;
     font-size: large;
     text-align: center;
@@ -217,15 +259,20 @@ body{
     justify-content: center; 
 }
 
+caption{
+    color: var(--primary-color);
+}
+
 th,td{
-    border: 5px solid darkgreen;
+    border: 5px solid var(--primary-color);
     text-align: center;
     padding: 5px;
     font-weight: bold;
+    color: var(--text-color)
 }
 
 th{
-    background-color: mediumseagreen;
+    background-color: var(--secondary-color);
     color: white;
 }
 
@@ -240,10 +287,10 @@ td:hover {
 
 .suggestions {
     border: none;
-    border: 5px solid darkgreen;
-    background-color: mediumseagreen;
+    border: 5px solid var(--primary-color);
+    background-color: var(--secondary-color);
     padding: 20px;
-    color: white;
+    color: var(--form-text-color);
     max-width: 600px; 
     margin: 0 auto;
   }
@@ -275,6 +322,7 @@ td:hover {
     text-align: center;
     font-weight: bolder;
     font-size: x-large;
+    color: var(--form-and-about-me-text-color);
   }
 
   output {
@@ -290,8 +338,8 @@ td:hover {
     padding: 15px;
     font-weight: bolder;
     font-size: larger;
-    color: white;
-    background-color: darkgreen;
+    color: var(--form-and-about-me-text-color);
+    background-color: var(--primary-color);
     width: 50%;
     transition: transform .2s;
   }
@@ -307,11 +355,11 @@ td:hover {
     display: block;
   }
 
-  input.valid{
+  input.valid, textarea.valid{
     border: 5px solid darkgreen;
   }
 
-  input.invalid{
+  input.invalid, textarea.invalid{
     border: 5px solid red;
   }
 
@@ -353,11 +401,11 @@ td:hover {
 }
 
 .all_about_me p{
-    background-color: mediumseagreen;
+    background-color: var(--secondary-color);
     border-radius: 15px;
     padding: 10px;
     max-width: 350px;
-    color: white;
+    color: var(--form-and-about-me-text-color);
     text-align: center;
     display: block;
     margin: 20px auto;
@@ -407,7 +455,7 @@ td:hover {
 }
 
 .top5:has(ul) li {
-    background-color: mediumseagreen;
+    background-color: var(--secondary-color);
 }
 
 .top5 li{
@@ -422,8 +470,8 @@ td:hover {
 aside {
 	border : 4px double black;
     border-radius: 15px;
-	background-color : darkgreen;
-    color: white;
+	background-color : var(--primary-color);
+    color: var(--form-and-about-me-text-color);
     margin: 10px auto;
     padding: 10px;
 	max-width: 400px;
@@ -488,7 +536,7 @@ aside {
         text-align: center;
         margin: 5px 0;
         padding: 10px;
-        border: 3px solid darkgreen;
+        border: 3px solid var(--primary-color);
         font-size: medium;
     }
 

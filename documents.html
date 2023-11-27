@@ -11,6 +11,12 @@
     </head>
     <body>
         <header class="header_container">
+
+            <label id="theme_switcher">
+                <input type="checkbox" id="theme_switcher" onclick="themeButton()">
+                <span class="theme_switch"></span>
+            </label>
+
             <nav class="navigation">
                 <ul id="menu">
                     <li><a href="index.html">HOMEPAGE</a></li>
@@ -49,7 +55,7 @@
 
             <section class="education">
                 <table class="relevant_skills">
-                    <caption style="color: darkgreen;"><strong>RELEVANT COURSES</strong></caption>
+                    <caption><strong>RELEVANT COURSES</strong></caption>
                     <colgroup>
                         <col class="bioinfo">
                         <col class="software_dev">
@@ -73,5 +79,6 @@
                 </table>
             </section>
         </main>
+        <script src="scripts/script.js"></script>
     </body>
 </html>

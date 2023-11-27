@@ -11,6 +11,12 @@
     </head>
     <body>
         <header class="header_container">
+
+            <label id="theme_switcher">
+                <input type="checkbox" id="theme_switcher" onclick="themeButton()">
+                <span class="theme_switch"></span>
+            </label>
+
             <nav class="navigation">
                 <ul id="menu">
                     <li><a href="index.html">HOMEPAGE</a></li>
@@ -38,14 +44,6 @@
                     <textarea type="text" name="comments" id="comments" placeholder="Comments should only contain typical characters (letters, numbers, spaces, and . ? ! , ' +)" rows="5" maxlength="200" required></textarea>
                     <output for="comments" id="comments_info"></output><br>
                     <output for="comments" id="comments_error"></output><br>
-
-                    <!--
-                    <div id="char_counter">
-                        <span id="counter">0</span>
-                        <span>/</span>
-                        <span id="max_char">200</span>
-                    </div>
-                    -->
 
                     <label for="possible_bot"></label>
                     <input type="hidden" name="possible_bot" id="possible_bot" value="true">

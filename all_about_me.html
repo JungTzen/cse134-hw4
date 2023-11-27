@@ -9,11 +9,15 @@
         <link rel="stylesheet" type="text/css" href="styles/style.css">
         <style>
             .top5 em{
-                color: white;
+                color: var(--form-and-about-me-text-color);
+            }
+
+            h2{
+                color: var(--text-color);
             }
 
             strong{
-                color: black;
+                color: var(--text-color);
             }
         </style>
         
@@ -21,6 +25,12 @@
     </head>
     <body>
         <header class="header_container">
+
+            <label id="theme_switcher">
+                <input type="checkbox" id="theme_switcher" onclick="themeButton()">
+                <span class="theme_switch"></span>
+            </label>
+
             <nav class="navigation">
                 <ul id="menu">
                     <li><a href="index.html">HOMEPAGE</a></li>
@@ -29,6 +39,7 @@
                     <li><a href="contact.html">CONTACT ME</a></li>
                 </ul>
             </nav>
+
         </header>
 
 
@@ -102,5 +113,6 @@
                 </picture>
             </section>
         </main>
+        <script src="scripts/script.js"></script>
     </body>
 </html>

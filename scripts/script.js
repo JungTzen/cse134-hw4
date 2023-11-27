@@ -1,3 +1,5 @@
+const form = document.querySelector('form');
+
 const form_name = document.getElementById("form_name");
 const email = document.getElementById("email");
 const comments = document.getElementById("comments");
@@ -98,7 +100,75 @@ comments.addEventListener("keyup", (event) => {
 });
 
 form.addEventListener("submit", (event) => {
-  const encoded = JSON.stringify(form_errors);
-  const server_side = new FormData();
-  server_side.append('form_errors', encoded);
+
+  event.preventDefault();
+
+  //const encoded = JSON.stringify({ form_errors: form_errors });
+
+  const formData = {
+    form_name: form_name.value,
+    email: email.value,
+    comments: comments.value,
+    form_errors: form_errors
+  }
+
+  const encoded = JSON.stringify(formData);
+
+  fetch('https://httpbin.org/post', { 
+    method: 'POST', 
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: encoded 
+  })
+  .then(response => response.json())
+  .then(data => {
+    const responseElement = document.createElement('pre');
+    responseElement.textContent = JSON.stringify(data, null, 2);
+    document.body.appendChild(responseElement);
+  })
+  .catch(error => console.error('Error:', error));
 });
+
+
+function themeSetter(theme){
+  const root = document.documentElement;
+  if(theme =='light'){
+    root.style.setProperty('--primary-color','var(--light-primary-color)');
+    root.style.setProperty('--secondary-color','var(--light-secondary-color)');
+    root.style.setProperty('--text-color','var(--light-text-color)');
+    root.style.setProperty('--form-and-about-me-text-color','var(--light-form-and-about-me-text-color)');
+    root.style.setProperty('--background-color','var(--light-background-color)');
+  }
+  else{
+    root.style.setProperty('--primary-color','var(--dark-primary-color)');
+    root.style.setProperty('--secondary-color','var(--dark-secondary-color)');
+    root.style.setProperty('--text-color','var(--dark-text-color)');
+    root.style.setProperty('--form-and-about-me-text-color','var(--dark-form-and-about-me-text-color)');
+    root.style.setProperty('--background-color','var(--dark-background-color)');
+  }
+}
+
+function themeButton(){
+  const currentTheme = localStorage.getItem('theme') || 'light';
+  let newTheme = '';
+  if (currentTheme == 'light'){
+    newTheme = 'dark';
+  }
+  else{
+    newTheme = 'light';
+  }
+
+  localStorage.setItem('theme', newTheme);
+  themeSetter(newTheme);
+}
+
+function setLocalTheme(){
+  const local = localStorage.getItem('theme');
+  if(local){
+    themeSetter(local);
+    document.getElementById('theme_switcher').checked = savedTheme==='dark'
+  }
+}
+
+document.addEventListener('DOMContentLoaded')

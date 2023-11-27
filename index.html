@@ -25,7 +25,11 @@
     </head>
     <body>
         <header id="homepage_header">
-            <h1 style="color:darkgreen">JUNG TZEN LIEW</h1>
+            <h1 class="homepage_header">JUNG TZEN LIEW</h1>
+            <label for="theme_switcher">
+                <input type="checkbox" class="theme_switcher" id="theme_switcher" onclick="themeButton()">
+                <span class="theme_switch"></span>
+            </label>
         </header>
         <main class="homepage">
             <h2 class="homepage_nav">
@@ -42,5 +46,6 @@
                 <img src="/images/portrait/portrait.jpeg" alt="Missing image">
             </picture>
         </main>
+        <script src="scripts/script.js"></script>
     </body>
 </html>
