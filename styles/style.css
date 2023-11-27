@@ -292,7 +292,7 @@ td:hover {
     background-color: darkgreen;
     width: auto;
   }
-
+/*
   input:user-valid {
     border: 7px green;
   }
@@ -300,7 +300,9 @@ td:hover {
   input:user-invalid {
     border: 7px solid red;
   }
+*/
   
+
 /* ================ 
     ABOUT ME 
    ================ */
