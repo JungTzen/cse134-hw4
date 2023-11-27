@@ -125,6 +125,13 @@ form.addEventListener("submit", (event) => {
   .catch(error => console.error('Error:', error));
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const JS_toggle = document.querySelector('theme_switcher');
+
+  if(theme_switcher){
+    theme_switcher.style.display = 'inline';
+  }
+});
 
 function themeSetter(theme){
   const root = document.documentElement;
