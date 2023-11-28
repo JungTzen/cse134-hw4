@@ -19,6 +19,10 @@
             strong{
                 color: var(--text-color);
             }
+
+            input[type="checkbox"]{
+                display: none;
+            }
         </style>
         
         <title>About Me</title>
@@ -26,10 +30,12 @@
     <body>
         <header class="header_container">
 
-            <label id="theme_switcher">
-                <input type="checkbox" id="theme_switcher" onclick="themeButton()">
-                <span class="theme_switch"></span>
-            </label>
+            <div id="theme">
+                <label for="theme_switcher">
+                    <input type="checkbox" id="theme_switcher" onclick="themeButton()">
+                    <span class="theme_switch"></span>
+                </label>
+            </div>
 
             <nav class="navigation">
                 <ul id="menu">
@@ -114,5 +120,6 @@
             </section>
         </main>
         <script src="scripts/script.js"></script>
+        <script src="scripts/theme.js"></script>
     </body>
 </html>

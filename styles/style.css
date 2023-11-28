@@ -61,19 +61,14 @@ body{
     }
     
     & li a.current_page{
-        background-color: darkgreen;
-        color: white;
+        background-color: var(--primary-color);
+        color: var(--form-and-about-me-text-color);
     }
 
 }
 
-#theme_switcher{
+#theme{
     position: fixed;
-    display: none;
-
-}
-
-#theme_switcher input {
     display: none;
 }
 
