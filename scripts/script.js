@@ -30,6 +30,7 @@ form_name.addEventListener("input", (event) => {
     nameError.textContent = "Make sure your input only contains letters and spaces.";
     isValid = false;
     form_errors.push({field: 'name', type: 'patternMismatch', value: form_name.value});
+
   }
   else{
     nameError.textContent = "";

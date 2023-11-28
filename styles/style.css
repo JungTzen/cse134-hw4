@@ -372,20 +372,20 @@ td:hover {
   }
 
   .no-warning{
-    color: white;
+    color: var(--form-and-about-me-text-color);
   }
 
   #name_error, #comments_error, #email_error{
     color: red;
     font-weight: bold;
-    animation-name: example;
-    animation-duration: 4s;
+    /*animation: fadeOut 2s ease 3s forwards;*/
   }
 
   @keyframes fadeOut {
-    from {color: var(--primary-color);}
-    to {color: var(--background-color);}
-}
+    from {opacity: 1;}
+    to {opacity: 0;}
+  }
+
 
 /* ================ 
     ABOUT ME 
