@@ -103,14 +103,14 @@ form.addEventListener("submit", (event) => {
 
   event.preventDefault();
 
-  const encoded = JSON.stringify({ form_errors: form_errors });
+  const encoded = JSON.stringify({ form_name: form_name.value, email: email.value, comments: comments.value , form_errors: form_errors });
 
   fetch('https://httpbin.org/post', { 
     method: 'POST', 
     headers: {
       'Content-Type': 'application/json'
     },
-    body: encoded 
+    body: encoded
   })
 
   .then(response => response.json())
