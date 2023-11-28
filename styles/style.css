@@ -378,7 +378,14 @@ td:hover {
   #name_error, #comments_error, #email_error{
     color: red;
     font-weight: bold;
+    animation-name: example;
+    animation-duration: 4s;
   }
+
+  @keyframes fadeOut {
+    from {color: var(--primary-color);}
+    to {color: var(--background-color);}
+}
 
 /* ================ 
     ABOUT ME 
