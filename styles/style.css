@@ -68,7 +68,6 @@ body{
 }
 
 #theme{
-    position: fixed;
     display: none;
 }
 
@@ -378,14 +377,18 @@ td:hover {
   #name_error, #comments_error, #email_error{
     color: red;
     font-weight: bold;
-    /*animation: fadeOut 2s ease 3s forwards;*/
+    opacity: 0;
+    visibility: hidden;
   }
 
-  @keyframes fadeOut {
-    from {opacity: 1;}
-    to {opacity: 0;}
+  output.errorInactive {
+    animation: fadeInandOut 3s ease forwards;
   }
 
+  @keyframes fadeInandOut {
+    0%, 100% {opacity: 0; visibility: hidden;}
+    15%, 85% {opacity: 1; visibility: visible;}
+  }
 
 /* ================ 
     ABOUT ME 

@@ -18,6 +18,13 @@ const commentsRegExp = /^[A-Za-z0-9 .?!,'+]*$/;
 
 let form_errors = [];
 
+function errorPrompt(errorElement){
+  console.log("errorPrompt called for:", errorElement);
+  errorElement.classList.remove('errorInactive');
+  void errorElement.offsetWidth;
+  errorElement.classList.add('errorInactive');
+}
+
 form_name.addEventListener("input", (event) => {
   let isValid = true;
   
@@ -25,12 +32,13 @@ form_name.addEventListener("input", (event) => {
     nameError.textContent = "Please enter your name :)";
     isValid = false;
     form_errors.push({field: 'name', type: 'valueMissing', value: form_name.value});
+    errorPrompt(nameError);
   }
   else if(!nameRegExp.test(form_name.value)){
     nameError.textContent = "Make sure your input only contains letters and spaces.";
     isValid = false;
     form_errors.push({field: 'name', type: 'patternMismatch', value: form_name.value});
-
+    errorPrompt(nameError);
   }
   else{
     nameError.textContent = "";
@@ -47,11 +55,13 @@ email.addEventListener("input", (event) => {
     emailError.textContent = "Please enter your email :)";
     isValid = false;
     form_errors.push({field: 'email', type: 'valueMissing', value: email.value});
+    errorPrompt(emailError);
   }
   else if(!emailRegExp.test(email.value)){
     emailError.textContent = "Make sure this is correct email address.";
     isValid = false;
     form_errors.push({field: 'email', type: 'patternMismatch', value: email.value});
+    errorPrompt(emailError);
   }
   else{
     emailError.textContent = "";
@@ -68,11 +78,13 @@ comments.addEventListener("input", (event) => {
     commentsError.textContent = "Please leave any comment :)";
     isValid = false;
     form_errors.push({field: 'comments', type: 'valueMissing', value: comments.value});
+    errorPrompt(commentsError);
   }
   else if(!commentsRegExp.test(comments.value)){
     commentsError.textContent = "Make sure your input only contains typical characters (letters, numbers, spaces, and . ? ! , ' +)";
     isValid = false;
     form_errors.push({field: 'comments', type: 'patternMismatch', value: comments.value});
+    errorPrompt(commentsError);
   }
   else{
     commentsError.textContent = "";
@@ -115,13 +127,6 @@ form.addEventListener("submit", (event) => {
   })
 
   .then(response => response.json())
-  .then(data => {
-    const newPage = window.open('', '_blank');
-    if (newPage) {
-      newPage.document.write(`<pre>${JSON.stringify(data, null, 2)}</pre>`);
-    } else {
-      console.error('Popup blocked');
-    }
-  })
+  .then(data => {document.write(`<pre>${JSON.stringify(data, null, 2)}</pre>`);})
   .catch(error => console.error('Error:', error));
 });
