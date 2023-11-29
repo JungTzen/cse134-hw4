@@ -72,22 +72,22 @@ body{
 }
 
 .theme_switch{
+    background-color: darkgreen;
     position: relative;
     display: inline-block;
     width: 60px;
     height: 35px;
-    background-color: darkgreen;
     border-radius: 35px;
 }
 
 .theme_switch:before {
     position: absolute;
+    background-color: white;
     content: "";
     height: 26px;
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: white;
     border-radius: 50%;
 }
 
